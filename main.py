@@ -10,27 +10,13 @@ import gc
 app = FastAPI()
 
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
-origins = [
-    "http://localhost:5174",  # Vite default port
-    "https://fastapiserver-mi2g.onrender.com"
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Allow these origins
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],    # Allow all methods
-    allow_headers=["*"],    # Allow all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
-
 
 # ✅ In-memory session store (use Redis/db in production)
 session_store = {}

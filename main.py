@@ -10,13 +10,23 @@ import gc
 app = FastAPI()
 
 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,  # ✅ set this to False
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 # ✅ In-memory session store (use Redis/db in production)
 session_store = {}
